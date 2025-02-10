@@ -11,7 +11,10 @@ def main():
     print(f"Connected as {client_name}")
 
     while True:
-        message = input("> ")
+        message = input("> ").strip()
+        if not message:
+            continue
+
         client.send(message.encode())
 
         if message.lower() == "exit":
